@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "isitme": { "type": "http", "url": "https://isitme.menloparklabai.workers.dev/mcp" }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "isitme",
+  "owner": {
+    "name": "misbahsy"
+  },
+  "metadata": {
+    "description": "isitme: live status of remote MCP servers for agents."
+  },
+  "plugins": [
+    {
+      "name": "isitme",
+      "source": "./plugins/isitme",
+      "description": "When a remote MCP server call fails, learn whether the server is down, needs sign-in, or works fine."
+    }
+  ]
+}

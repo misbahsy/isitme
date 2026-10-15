@@ -1,0 +1,10 @@
+{
+  "name": "isitme",
+  "version": "0.1.0",
+  "description": "Is it me or is it them? Live status of remote MCP servers: down, needs sign-in, or fine. Adds the isitme MCP server and a skill that tells the agent when to call it.",
+  "author": { "name": "misbahsy" },
+  "homepage": "https://isitme.menloparklabai.workers.dev",
+  "repository": "https://github.com/misbahsy/isitme",
+  "license": "MIT",
+  "keywords": ["mcp", "status", "oauth", "debugging"]
+}
