@@ -1,0 +1,11 @@
+{
+  "description": "When a call to a remote MCP server fails with a connection or sign-in error, ask isitme whether the server is down, needs sign-in, or works fine, and tell the agent.",
+  "hooks": {
+    "PostToolUseFailure": [
+      {
+        "matcher": "mcp__.*",
+        "hooks": [{ "type": "command", "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/on-failure.mjs\"", "timeout": 10 }]
+      }
+    ]
+  }
+}

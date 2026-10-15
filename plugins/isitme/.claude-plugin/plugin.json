@@ -1,10 +1,17 @@
 {
   "name": "isitme",
-  "version": "0.1.0",
-  "description": "Is it me or is it them? Live status of remote MCP servers: down, needs sign-in, or fine. Adds the isitme MCP server and a skill that tells the agent when to call it.",
-  "author": { "name": "misbahsy" },
+  "version": "0.2.0",
+  "description": "Is it me or is it them? Live status of remote MCP servers: down, needs sign-in, or fine. Adds the isitme MCP server, a skill that tells the agent when to call it, and a hook that checks automatically when a remote MCP call fails with a connection or sign-in error (it sends only that server's URL, never one carrying a key).",
+  "author": {
+    "name": "misbahsy"
+  },
   "homepage": "https://isitme.menloparklabai.workers.dev",
   "repository": "https://github.com/misbahsy/isitme",
   "license": "MIT",
-  "keywords": ["mcp", "status", "oauth", "debugging"]
+  "keywords": [
+    "mcp",
+    "status",
+    "oauth",
+    "debugging"
+  ]
 }
