@@ -26,6 +26,13 @@ function serverUrl(server, cwd) {
   return null;
 }
 
+// Internal endpoints never leave the machine. Same rule as publicUrl() in the isitme server.
+function internal(raw) {
+  const u = new URL(raw);
+  const host = u.hostname.toLowerCase().replace(/\.+$/, "");
+  return u.protocol !== "https:" || !host.includes(".") || /^[\d.]+$/.test(host) || host.startsWith("[") || /\.(local|internal|localhost|lan|home|arpa|corp|intranet)$/.test(host);
+}
+
 function secretish(raw) {
   const u = new URL(raw);
   return !!(u.search || u.hash || u.username || u.password || u.pathname.split("/").some((s) => (s.length >= 16 && /\d/.test(s)) || s.length >= 32));
@@ -36,7 +43,7 @@ async function main() {
   const server = input.mcp_server?.name ? norm(input.mcp_server.name) : input.tool_name?.match(/^mcp__(.+?)__/)?.[1];
   if (!server || !TRANSPORT_ERROR.test(String(input.error ?? ""))) return;
   const url = input.mcp_server?.url ?? serverUrl(server, input.cwd ?? process.cwd());
-  if (!url || secretish(url)) return;
+  if (!url || internal(url) || secretish(url)) return;
 
   const res = await fetch(`${API}?url=${encodeURIComponent(url)}&reason=failure`, {
     headers: { "user-agent": "isitme-hook/0.2 (claude-code)", ...(process.env.ISITME_SMOKE ? { "x-studio-smoke": "1" } : {}) },
